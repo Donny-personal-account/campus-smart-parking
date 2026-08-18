@@ -1,0 +1,6 @@
+{
+  "name": "apiProxy",
+  "version": "1.0.0",
+  "description": "API代理云函数 - 转发请求到后端服务器",
+  "main": "index.js"
+}

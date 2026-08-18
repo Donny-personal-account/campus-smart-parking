@@ -1,0 +1,21 @@
+<!--pages/welcome/welcome.wxml-->
+<view class="container">
+  <view class="welcome-box">
+    <image class="logo" src="/images/logo.png" mode="aspectFit"></image>
+    
+    <view class="welcome-text">
+      <text class="greeting">欢迎您</text>
+      <text class="username">{{userInfo.nickname}}</text>
+      <text class="role">{{userInfo.role === 'student' ? '同学' : '老师'}}</text>
+    </view>
+
+    <view class="school-info">
+      <text class="school">中南林业科技大学</text>
+      <text class="department">智慧校园停车系统</text>
+    </view>
+
+    <view class="loading">
+      <view class="loading-spinner"></view>
+    </view>
+  </view>
+</view>

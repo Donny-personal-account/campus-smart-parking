@@ -1,0 +1,24 @@
+<!--pages/privacy/privacy.wxml-->
+<view class="container">
+  <view class="header">
+    <text class="title">隐私政策</text>
+  </view>
+
+  <view class="content">
+    <view class="section">
+      <text class="section-title">本隐私政策说明我们如何收集、使用和保护您的信息</text>
+    </view>
+
+    <view class="item-list">
+      <view class="item" wx:for="{{privacyItems}}" wx:key="index">
+        <text class="item-title">{{item.title}}</text>
+        <text class="item-desc">{{item.desc}}</text>
+      </view>
+    </view>
+
+    <view class="section">
+      <text class="section-title">联系我们</text>
+      <text class="contact">如有疑问,请联系系统管理员</text>
+    </view>
+  </view>
+</view>

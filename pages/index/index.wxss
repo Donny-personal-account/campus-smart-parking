@@ -1,0 +1,420 @@
+/* pages/index/index.wxss */
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 搜索框样式 */
+.search-container {
+  position: relative;
+  z-index: 100;
+  background-color: white;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  background-color: white;
+}
+
+.search-icon {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 16rpx;
+}
+
+.search-input {
+  flex: 1;
+  height: 72rpx;
+  font-size: 28rpx;
+  background-color: #f5f5f5;
+  border-radius: 36rpx;
+  padding: 0 80rpx 0 30rpx;
+}
+
+.search-clear {
+  position: absolute;
+  right: 50rpx;
+  width: 48rpx;
+  height: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ddd;
+  border-radius: 50%;
+  color: #666;
+  font-size: 32rpx;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.2s ease;
+}
+
+.search-clear.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 搜索建议下拉框 */
+.search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 0;
+  background-color: white;
+  border-radius: 0 0 16rpx 16rpx;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.15);
+}
+
+.search-suggestions.show {
+  max-height: 600rpx;
+}
+
+.suggestions-scroll {
+  height: 100%;
+}
+
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 30rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+  transition: background-color 0.2s ease;
+}
+
+.suggestion-item.selected {
+  background-color: #e6f7ff;
+}
+
+.suggestion-icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+}
+
+.suggestion-icon image {
+  width: 100%;
+  height: 100%;
+}
+
+.suggestion-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.suggestion-name {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.suggestion-detail {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.suggestion-distance {
+  margin-left: 20rpx;
+}
+
+.distance-text {
+  font-size: 24rpx;
+  color: #1890ff;
+  background-color: #e6f7ff;
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+}
+
+/* 最近停车场推荐 */
+.nearest-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 0;
+  background-color: white;
+  border-radius: 0 0 16rpx 16rpx;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.15);
+  z-index: 99;
+}
+
+.nearest-container.show {
+  max-height: 280rpx;
+}
+
+.nearest-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.nearest-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.nearest-close {
+  font-size: 40rpx;
+  color: #999;
+  line-height: 1;
+  padding: 0 10rpx;
+}
+
+.nearest-scroll {
+  white-space: nowrap;
+  padding: 20rpx 0;
+}
+
+.nearest-item {
+  display: inline-flex;
+  align-items: center;
+  padding: 16rpx 24rpx;
+  margin: 0 0 0 20rpx;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ff 100%);
+  border-radius: 12rpx;
+  border: 2rpx solid #bae7ff;
+  transition: all 0.2s ease;
+}
+
+.nearest-item:active {
+  transform: scale(0.95);
+}
+
+.nearest-icon {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 12rpx;
+}
+
+.nearest-icon image {
+  width: 100%;
+  height: 100%;
+}
+
+.nearest-info {
+  display: flex;
+  flex-direction: column;
+  margin-right: 12rpx;
+}
+
+.nearest-name {
+  font-size: 26rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 6rpx;
+}
+
+.nearest-distance {
+  font-size: 22rpx;
+  color: #1890ff;
+}
+
+.nearest-status {
+  padding: 6rpx 16rpx;
+  border-radius: 20rpx;
+  font-size: 22rpx;
+}
+
+.nearest-status.available {
+  background-color: #f6ffed;
+  color: #52c41a;
+}
+
+.nearest-status.full {
+  background-color: #fff1f0;
+  color: #ff4d4f;
+}
+
+/* 地图样式 */
+.map-wrapper {
+  flex: 1;
+  position: relative;
+  min-height: 60vh;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+}
+
+.map-overlay {
+  position: absolute;
+  top: 30rpx;
+  left: 30rpx;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 24rpx 30rpx;
+  border-radius: 12rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.15);
+}
+
+.map-title {
+  display: block;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.map-subtitle {
+  display: block;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.action-buttons {
+  display: flex;
+  padding: 30rpx;
+  gap: 20rpx;
+  background-color: white;
+  box-shadow: 0 -4rpx 16rpx rgba(0, 0, 0, 0.1);
+}
+
+.action-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30rpx 20rpx;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: white;
+  border: none;
+  line-height: 1.5;
+}
+
+.btn-icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-bottom: 12rpx;
+}
+
+.parking-btn {
+  background: linear-gradient(135deg, #52c41a 0%, #73d13d 100%);
+}
+
+.nav-btn {
+  background: linear-gradient(135deg, #1890ff 0%, #40a9ff 100%);
+}
+
+/* 弹窗样式 */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.modal.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  position: absolute;
+  bottom: 200rpx;
+  left: 30rpx;
+  right: 30rpx;
+  background-color: white;
+  border-radius: 16rpx;
+  overflow: hidden;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.modal.show .modal-content {
+  transform: translateY(0);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.modal-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.modal-close {
+  font-size: 48rpx;
+  color: #999;
+  line-height: 1;
+  padding: 0 10rpx;
+}
+
+.modal-body {
+  padding: 30rpx;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+.info-label {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.info-value {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.info-value.available {
+  color: #52c41a;
+}
+
+.info-value.occupied {
+  color: #ff4d4f;
+}
+
+.modal-footer {
+  padding: 20rpx 30rpx 30rpx;
+}
+
+.btn-primary {
+  width: 100%;
+  height: 90rpx;
+  background: linear-gradient(135deg, #1890ff 0%, #40a9ff 100%);
+  color: white;
+  font-size: 32rpx;
+  font-weight: bold;
+  border-radius: 12rpx;
+  border: none;
+}

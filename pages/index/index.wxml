@@ -1,0 +1,129 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <!-- 搜索框区域 -->
+  <view class="search-container">
+    <view class="search-box">
+      <image class="search-icon" src="/images/home.png"></image>
+      <input
+        class="search-input"
+        type="text"
+        placeholder="搜索停车场..."
+        value="{{searchKeyword}}"
+        bindinput="onSearchInput"
+        bindconfirm="onSearch"
+        focus="{{searchFocused}}"
+      />
+      <view class="search-clear {{searchKeyword ? 'show' : ''}}" bindtap="clearSearch">
+        <text>×</text>
+      </view>
+    </view>
+
+    <!-- 搜索建议下拉框 -->
+    <view class="search-suggestions {{showSuggestions ? 'show' : ''}}" wx:if="{{searchResults.length > 0}}">
+      <scroll-view scroll-y class="suggestions-scroll">
+        <view
+          class="suggestion-item {{item.id === selectedIndex ? 'selected' : ''}}"
+          wx:for="{{searchResults}}"
+          wx:key="id"
+          bindtap="selectSuggestion"
+          data-index="{{index}}"
+        >
+          <view class="suggestion-icon">
+            <image src="/images/parking-marker.png"></image>
+          </view>
+          <view class="suggestion-info">
+            <text class="suggestion-name">{{item.name}}</text>
+            <text class="suggestion-detail">空余: {{item.available_spots}}/{{item.total_spots}}</text>
+          </view>
+          <view class="suggestion-distance" wx:if="{{item.distance}}">
+            <text class="distance-text">{{item.distance_text}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+
+    <!-- 最近推荐 -->
+    <view class="nearest-container {{showNearest ? 'show' : ''}}" wx:if="{{nearestParkingLots.length > 0}}">
+      <view class="nearest-header">
+        <text class="nearest-title">附近停车场推荐</text>
+        <text class="nearest-close" bindtap="hideNearest">×</text>
+      </view>
+      <scroll-view scroll-x class="nearest-scroll">
+        <view class="nearest-item" wx:for="{{nearestParkingLots}}" wx:key="id" bindtap="goToParking" data-lot="{{item}}">
+          <view class="nearest-icon">
+            <image src="/images/parking-marker.png"></image>
+          </view>
+          <view class="nearest-info">
+            <text class="nearest-name">{{item.name}}</text>
+            <text class="nearest-distance">{{item.distance_text}}</text>
+          </view>
+          <view class="nearest-status {{item.available_spots > 0 ? 'available' : 'full'}}">
+            <text class="status-text">{{item.available_spots > 0 ? '有空位' : '已满'}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+  <!-- 地图区域 -->
+  <view class="map-wrapper">
+    <map
+      id="campusMap"
+      class="map"
+      longitude="{{longitude}}"
+      latitude="{{latitude}}"
+      scale="{{scale}}"
+      show-location="{{showLocation}}"
+      markers="{{markers}}"
+      bindmarkertap="onMarkerTap"
+      bindregionchange="onRegionChange"
+    >
+    </map>
+
+    <!-- 地图信息覆盖层 -->
+    <view class="map-overlay">
+      <text class="map-title">中南林业科技大学</text>
+      <text class="map-subtitle">智慧校园停车</text>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="action-buttons">
+    <button class="action-btn parking-btn" bindtap="goToParking">
+      <image class="btn-icon" src="/images/parking.png"></image>
+      <text>车位查询</text>
+    </button>
+    <button class="action-btn nav-btn" bindtap="goToNavigation">
+      <image class="btn-icon" src="/images/nav.png"></image>
+      <text>导航</text>
+    </button>
+  </view>
+
+  <!-- 停车场信息弹窗 -->
+  <view class="modal {{showModal ? 'show' : ''}}" wx:if="{{selectedParking}}">
+    <view class="modal-mask" bindtap="closeModal"></view>
+    <view class="modal-content">
+      <view class="modal-header">
+        <text class="modal-title">{{selectedParking.name}}</text>
+        <text class="modal-close" bindtap="closeModal">×</text>
+      </view>
+      <view class="modal-body">
+        <view class="info-row">
+          <text class="info-label">总停车位</text>
+          <text class="info-value">{{selectedParking.total_spots}}</text>
+        </view>
+        <view class="info-row">
+          <text class="info-label">空余停车位</text>
+          <text class="info-value available">{{selectedParking.available_spots}}</text>
+        </view>
+        <view class="info-row">
+          <text class="info-label">占用停车位</text>
+          <text class="info-value occupied">{{selectedParking.occupied_spots}}</text>
+        </view>
+      </view>
+      <view class="modal-footer">
+        <button class="btn-primary" bindtap="navigateToParking">去导航</button>
+      </view>
+    </view>
+  </view>
+</view>

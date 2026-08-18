@@ -1,0 +1,94 @@
+<!--pages/profile-edit/profile-edit.wxml-->
+<view class="edit-container">
+  <!-- 头像选择 - 使用微信头像选择组件 -->
+  <view class="section avatar-section">
+    <view class="section-title">头像</view>
+    <button
+      class="avatar-button"
+      open-type="chooseAvatar"
+      bindchooseavatar="onChooseAvatar"
+    >
+      <image
+        class="avatar"
+        src="{{tempAvatar || '/images/logo.png'}}"
+        mode="aspectFill"
+      ></image>
+      <view class="avatar-mask">
+        <text class="avatar-tip">点击更换头像</text>
+      </view>
+    </button>
+  </view>
+
+  <!-- 表单信息 -->
+  <view class="section form-section">
+    <!-- 昵称 - 使用微信昵称输入组件 -->
+    <view class="form-item">
+      <text class="label">昵称</text>
+      <input
+        class="input"
+        type="nickname"
+        placeholder="请输入昵称"
+        maxlength="20"
+        value="{{userInfo.nickname}}"
+        data-field="nickname"
+        bindinput="handleInput"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="label">真实姓名</text>
+      <input 
+        class="input" 
+        value="{{userInfo.realName}}" 
+        placeholder="请输入真实姓名"
+        maxlength="10"
+        data-field="realName"
+        bindinput="handleInput"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="label">学号</text>
+      <input 
+        class="input" 
+        value="{{userInfo.studentId}}" 
+        placeholder="请输入学号"
+        maxlength="15"
+        type="number"
+        data-field="studentId"
+        bindinput="handleInput"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="label">手机号</text>
+      <input 
+        class="input" 
+        value="{{userInfo.phone}}" 
+        placeholder="请输入手机号"
+        maxlength="11"
+        type="number"
+        data-field="phone"
+        bindinput="handleInput"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="label">邮箱</text>
+      <input 
+        class="input" 
+        value="{{userInfo.email}}" 
+        placeholder="请输入邮箱"
+        maxlength="50"
+        type="text"
+        data-field="email"
+        bindinput="handleInput"
+      />
+    </view>
+  </view>
+
+  <!-- 保存按钮 -->
+  <view class="btn-section">
+    <button class="save-btn" bindtap="handleSave">保存</button>
+  </view>
+</view>
