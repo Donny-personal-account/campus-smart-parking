@@ -11,4 +11,5 @@ Thumbs.db
 
 # Local runtime configuration
 config.js
+project.private.config.json
 
