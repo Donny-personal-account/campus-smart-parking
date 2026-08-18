@@ -1,0 +1,38 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+  <view class="login-box">
+    <view class="logo">
+      <image class="logo-img" src="/images/logo.png" mode="aspectFit"></image>
+      <text class="title">智慧校园停车系统</text>
+      <text class="subtitle">中南林业科技大学</text>
+    </view>
+
+    <view class="login-content">
+      <button
+        class="wechat-login-btn"
+        open-type="getUserInfo"
+        bindgetuserinfo="handleWechatLogin"
+        loading="{{loading}}"
+        disabled="{{loading}}"
+      >
+        <text>{{loading ? '登录中...' : '微信一键登录'}}</text>
+      </button>
+
+      <view class="divider">
+        <view class="line"></view>
+        <text class="divider-text">或</text>
+        <view class="line"></view>
+      </view>
+
+      <view class="tips">
+        <text class="tip">登录后可在个人中心完善昵称和头像</text>
+        <text class="tip">首次登录自动创建账户</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 先体验按钮 -->
+  <view class="skip-section">
+    <text class="skip-btn" bindtap="skipLogin">先体验，稍后登录</text>
+  </view>
+</view>

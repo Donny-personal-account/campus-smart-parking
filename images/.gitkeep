@@ -1,0 +1,12 @@
+# 图片资源目录
+# 请在此目录下放置以下图片：
+# - logo.png: 系统Logo
+# - user.png: 用户图标
+# - password.png: 密码图标
+# - home.png / home-active.png: 首页Tab图标
+# - parking.png / parking-active.png: 车位查询Tab图标
+# - nav.png / nav-active.png: 导航Tab图标
+# - marker.png: 地图标记图标
+# - parking-icon.png: 车位图标
+# - nav-icon.png: 导航图标
+# - refresh.png: 刷新图标

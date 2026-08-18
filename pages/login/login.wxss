@@ -1,0 +1,125 @@
+/* pages/login/login.wxss */
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40rpx;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 600rpx;
+  background: white;
+  border-radius: 20rpx;
+  padding: 60rpx 40rpx;
+  box-shadow: 0 20rpx 60rpx rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 80rpx;
+}
+
+.logo-img {
+  width: 120rpx;
+  height: 120rpx;
+  margin-bottom: 20rpx;
+}
+
+.title {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.subtitle {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.login-content {
+  width: 100%;
+}
+
+.wechat-login-btn {
+  width: 100%;
+  height: 100rpx;
+  background: linear-gradient(135deg, #07c160 0%, #06ad56 100%);
+  color: white;
+  font-size: 32rpx;
+  font-weight: bold;
+  border-radius: 50rpx;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 20rpx rgba(7, 193, 96, 0.3);
+}
+
+.wechat-login-btn[disabled] {
+  opacity: 0.6;
+}
+
+.wechat-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 16rpx;
+}
+
+.wechat-login-btn text {
+  font-size: 32rpx;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 60rpx 0 40rpx;
+}
+
+.line {
+  flex: 1;
+  height: 1rpx;
+  background-color: #e0e0e0;
+}
+
+.divider-text {
+  margin: 0 20rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.tips {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tip {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 8rpx;
+}
+
+/* 先体验按钮 */
+.skip-section {
+  margin-top: 40rpx;
+}
+
+.skip-btn {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 16rpx 40rpx;
+  border: 2rpx solid rgba(255, 255, 255, 0.4);
+  border-radius: 40rpx;
+}
+
+.skip-btn:active {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+

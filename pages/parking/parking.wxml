@@ -1,0 +1,66 @@
+<!--pages/parking/parking.wxml-->
+<view class="container">
+  <!-- 地图区域 -->
+  <view class="map-wrapper">
+    <map
+      id="parkingMap"
+      class="map"
+      longitude="{{longitude}}"
+      latitude="{{latitude}}"
+      scale="{{scale}}"
+      show-location="{{showLocation}}"
+      markers="{{markers}}"
+      bindmarkertap="onMarkerTap"
+    >
+    </map>
+    
+    <!-- 刷新按钮 -->
+    <view class="refresh-btn" bindtap="refreshData">
+      <text class="refresh-icon {{refreshing ? 'rotating' : ''}}">🔄</text>
+      <text>刷新</text>
+    </view>
+  </view>
+
+  <!-- 停车场列表 -->
+  <view class="parking-list">
+    <view class="list-header">
+      <text class="list-title">停车场列表</text>
+      <text class="list-count">共{{parkingLots.length}}个</text>
+    </view>
+
+    <scroll-view class="list-scroll" scroll-y>
+      <view class="parking-item" wx:for="{{parkingLots}}" wx:key="name" bindtap="selectParking" data-index="{{index}}">
+        <view class="item-header">
+          <text class="item-name">{{item.name}}</text>
+          <view class="item-status {{item.available_spots > 0 ? 'available' : 'full'}}">
+            <text class="status-text">{{item.available_spots > 0 ? '有空位' : '已满'}}</text>
+          </view>
+        </view>
+
+        <view class="item-info">
+          <view class="info-box">
+            <text class="info-label">总车位</text>
+            <text class="info-value">{{item.total_spots}}</text>
+          </view>
+          <view class="info-box">
+            <text class="info-label">空余</text>
+            <text class="info-value green">{{item.available_spots}}</text>
+          </view>
+          <view class="info-box">
+            <text class="info-label">占用</text>
+            <text class="info-value red">{{item.occupied_spots}}</text>
+          </view>
+        </view>
+
+        <!-- 进度条 -->
+        <view class="progress-bar">
+          <view class="progress-fill" style="width: {{(item.occupied_spots / item.total_spots) * 100}}%"></view>
+        </view>
+      </view>
+
+      <view class="empty" wx:if="{{parkingLots.length === 0}}">
+        <text class="empty-text">暂无停车场数据</text>
+      </view>
+    </scroll-view>
+  </view>
+</view>

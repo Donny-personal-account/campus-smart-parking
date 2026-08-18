@@ -1,0 +1,11 @@
+# Dependencies and generated output
+node_modules/
+miniprogram_npm/
+dist/
+
+# Local and temporary files
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+

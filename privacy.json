@@ -1,0 +1,33 @@
+{
+  "version": "1",
+  "privacyInfo": {
+    "useLocation": {
+      "title": "位置信息说明",
+      "desc": "用于导航和车位查询功能,为您提供停车场导航服务"
+    },
+    "useLocationAlways": {
+      "title": "持续位置信息说明",
+      "desc": "用于导航过程中的实时位置追踪"
+    },
+    "useRecord": {
+      "title": "麦克风使用说明",
+      "desc": "本小程序不使用麦克风功能"
+    },
+    "useAlbum": {
+      "title": "相册使用说明",
+      "desc": "用于选择上传头像图片"
+    },
+    "useCamera": {
+      "title": "相机使用说明",
+      "desc": "用于拍摄头像图片"
+    },
+    "usePhotoLibrary": {
+      "title": "照片库使用说明",
+      "desc": "用于选择上传头像图片"
+    },
+    "useMicrophone": {
+      "title": "麦克风使用说明",
+      "desc": "本小程序不使用麦克风功能"
+    }
+  }
+}
