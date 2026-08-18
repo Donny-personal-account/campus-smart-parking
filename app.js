@@ -1,4 +1,6 @@
 // app.js
+const config = require('./config')
+
 App({
   globalData: {
     // 用户信息
@@ -8,12 +10,10 @@ App({
     isLogin: false,
 
     // CloudBase 环境 ID
-    envId: 'cloud1-3guvjjnw6aa2d223',
+    envId: config.cloudbaseEnvId,
 
     // 服务器配置
-    // 开发/真机调试: 使用 IP 或域名
-    serverUrl: 'https://api.donny.chat/api',  // 正式环境使用 HTTPS
-    // serverUrl: 'http://49.235.146.233/api',  // 备用：直接IP访问（需要服务器Nginx配置支持）
+    serverUrl: config.serverUrl,
 
     // 地图配置
     mapConfig: {

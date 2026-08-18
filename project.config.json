@@ -45,7 +45,7 @@
   "cloudfunctionRoot": "cloudfunctions/",
   "compileType": "miniprogram",
   "libVersion": "2.19.4",
-  "appid": "wx8f7aca3ce0819627",
+  "appid": "touristappid",
   "projectname": "智慧校园停车",
   "condition": {},
   "editorSetting": {

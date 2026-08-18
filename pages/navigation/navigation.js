@@ -1,10 +1,8 @@
 // pages/navigation/navigation.js
 const app = getApp()
+const { tencentMapKey: TENCENT_MAP_KEY } = require('../../config')
 const { showLoading, hideLoading, showToast } = require('../../utils/request')
 const { getAccurateLocation, requestLocationAuth, SpeedFilter, TrajectorySmoother } = require('../../utils/location')
-
-// 腾讯地图 WebService API Key（https://lbs.qq.com/ 免费申请）
-const TENCENT_MAP_KEY = 'HXXBZ-IRBET-SNJXL-LGAPK-TEBU6-VNBG6'
 
 Page({
   data: {
@@ -395,7 +393,7 @@ Page({
       return
     }
 
-    if (TENCENT_MAP_KEY === 'YOUR_TENCENT_MAP_KEY') {
+    if (!TENCENT_MAP_KEY) {
       showToast('请先配置腾讯地图Key')
       return
     }
