@@ -2,13 +2,17 @@
 const http = require('http');
 const querystring = require('querystring');
 
-const BACKEND_HOST = '49.235.146.233';
-const BACKEND_PORT = 8080;
+const BACKEND_HOST = process.env.BACKEND_HOST;
+const BACKEND_PORT = Number(process.env.BACKEND_PORT || 80);
 
 exports.main = async (event, context) => {
   const { path, method = 'GET', data = {}, headers = {}, fileBase64, fileName } = event;
 
   try {
+    if (!BACKEND_HOST) {
+      throw new Error('BACKEND_HOST environment variable is not configured');
+    }
+
     const isGet = method.toUpperCase() === 'GET';
     
     // 构建请求选项

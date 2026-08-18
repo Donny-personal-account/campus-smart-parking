@@ -10,12 +10,15 @@ const db = cloud.database()
 exports.main = async (event, context) => {
   const { originLat, originLon, destLat, destLon, mode = 'driving' } = event
   const wxContext = cloud.getWXContext()
+  const baiduMapAk = process.env.BAIDU_MAP_AK
 
   try {
-    // 使用百度地图API进行路径规划
-    const BAIDU_MAP_AK = 'SNzw3eNWDMWCLAfesFoTYlONYSYpdKxU'
+    if (!baiduMapAk) {
+      throw new Error('BAIDU_MAP_AK environment variable is not configured')
+    }
 
-    const url = `https://api.map.baidu.com/direction/v2/${mode}?origin=${originLon},${originLat}&destination=${destLon},${destLat}&ak=${BAIDU_MAP_AK}&output=json`
+    // 使用百度地图API进行路径规划
+    const url = `https://api.map.baidu.com/direction/v2/${mode}?origin=${originLon},${originLat}&destination=${destLon},${destLat}&ak=${baiduMapAk}&output=json`
 
     const res = await new Promise((resolve, reject) => {
       const https = require('https')
