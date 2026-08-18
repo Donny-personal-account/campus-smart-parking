@@ -36,7 +36,7 @@
 
 1. 安装微信开发者工具并克隆本仓库。
 2. 在开发者工具中选择“导入项目”，项目目录选择仓库根目录。
-3. 复制 `config.example.js` 为 `config.js`，填写 CloudBase 环境 ID、后端地址和腾讯地图密钥。`config.js` 已加入 `.gitignore`，不要提交到仓库。
+3. 复制 `config.example.js` 为 `config.js`，填写 CloudBase 环境 ID、后端地址和腾讯地图密钥。
 4. 将 `project.config.json` 中的 `touristappid` 替换为自己的小程序 AppID。
 5. 开通微信云开发，在云开发控制台创建所需数据库集合，并上传 `cloudfunctions` 目录下的云函数。含依赖的云函数需要在上传时安装依赖。
 6. 为 `getNavigation` 云函数配置 `BAIDU_MAP_AK` 环境变量；为 `apiProxy` 配置 `BACKEND_HOST` 和 `BACKEND_PORT` 环境变量。
